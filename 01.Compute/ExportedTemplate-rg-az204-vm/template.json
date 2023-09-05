@@ -126,6 +126,7 @@
                       "managedDisk": {
                         "storageAccountType": "Premium_LRS"
                         // Removed (Error: Azure managed disk: osDisk.managedDisk.id is not allowed)
+                        // Reference: https://github.com/Azure/azure-quickstart-templates/issues/3290
                         //"id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachines_vm_win_demo_sn_name'), '_OsDisk_1_e51498c42799435d9d8635bb65d8f80f'))]"
                       },
                         "deleteOption": "Detach",
@@ -137,6 +138,7 @@
                 "computerName": "[parameters('virtualMachines_vm_win_demo_sn_name')]",
                 "adminUsername": "vmadmin",
                 // Added
+                // Reference: https://www.thebestcsharpprogrammerintheworld.com/2018/08/21/required-parameter-adminpassword-is-missing-null/
                 "adminPassword": "TODO: Set in Azure Portal",
                 "windowsConfiguration": {
                   "provisionVMAgent": true,
