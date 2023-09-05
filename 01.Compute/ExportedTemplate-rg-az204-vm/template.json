@@ -125,28 +125,30 @@
                         "caching": "ReadWrite",
                       "managedDisk": {
                         "storageAccountType": "Premium_LRS"
+                        // Removed id (Error: Azure managed disk: osDisk.managedDisk.id is not allowed)
+                        //"id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachines_vm_win_demo_sn_name'), '_OsDisk_1_e51498c42799435d9d8635bb65d8f80f'))]"
                       },
                         "deleteOption": "Detach",
                         "diskSizeGB": 127
                     },
                     "dataDisks": []
                 },
-                "osProfile": {
-                    "computerName": "[parameters('virtualMachines_vm_win_demo_sn_name')]",
-                    "adminUsername": "vmadmin",
-                    "windowsConfiguration": {
-                        "provisionVMAgent": true,
-                        "enableAutomaticUpdates": true,
-                        "patchSettings": {
-                            "patchMode": "AutomaticByOS",
-                            "assessmentMode": "ImageDefault"
-                        },
-                        "enableVMAgentPlatformUpdates": false
-                    },
-                    "secrets": [],
-                    "allowExtensionOperations": true,
-                    "requireGuestProvisionSignal": true
+              "osProfile": {
+                "computerName": "[parameters('virtualMachines_vm_win_demo_sn_name')]",
+                "adminUsername": "vmadmin",
+                "windowsConfiguration": {
+                  "provisionVMAgent": true,
+                  "enableAutomaticUpdates": true,
+                  "patchSettings": {
+                    "patchMode": "AutomaticByOS",
+                    "assessmentMode": "ImageDefault"
+                  },
+                  "enableVMAgentPlatformUpdates": false
                 },
+                "secrets": [],
+                "allowExtensionOperations": true,
+                "requireGuestProvisionSignal": false // Disabled (Error: The property 'requireGuestProvisionSignal' is not valid because the 'Microsoft.Compute/Agentless' feature is not enabled for this subscription)
+              },
                 "networkProfile": {
                     "networkInterfaces": [
                         {
