@@ -1,6 +1,6 @@
-<# SDK References:
-1. Install Docker          - https://docs.docker.com/desktop/#download-and-install 
-2. Install dotnet core sdk - https://dotnet.microsoft.com/download/dotnet-core
+<# Install SDK Prerequisites:
+1. Docker Tools	- https://docs.docker.com/desktop/#download-and-install 
+2. DotNet Core  - https://dotnet.microsoft.com/download/dotnet-core or Visual Studio 2022
 #>
 
 #Navigate to folder with Dockerfile and Web App
