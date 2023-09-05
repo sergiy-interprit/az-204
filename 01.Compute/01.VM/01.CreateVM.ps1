@@ -40,8 +40,8 @@ az vm create `
     --admin-password "Complex_P4ss2023#!"
 
 <# NOTE:
-Default VM Size: Standard DS1 v2 (1 vcpu, 3.5 GiB memory)
-Default Open RDP Port: 3389
+- If unspecified, the default VM size is: Standard DS1 v2 (1 vCPU, 3.5 GB RAM)
+- RDP Port should be open by default: 3389
 #>
 
 #--------------------------------------------------------------------

@@ -33,7 +33,7 @@ az group create `
 #--------------------------------------------------------------------
 #STEP 2: Create an Azure Container Registry
 #--------------------------------------------------------------------
-$ACR_NAME='acrdemosn'  #NOTE: This needs to be globally unique inside of Azure
+$ACR_NAME='acrdemosn'  #NOTE: This name needs to be globally unique in Azure!
 
 az acr create `
     --resource-group "rg-az204-acr" `
@@ -51,7 +51,7 @@ az acr update -n $ACR_NAME --admin-enabled true
 #Login to ACR under current login context (Admin)
 az acr login --name $ACR_NAME
 
-# Show ACR Authentication Token
+# Show ACR Authentication Token (For programmatic  access to ACR)
 az acr login --name $ACR_NAME --expose-token
 
 #--------------------------------------------------------------------
@@ -62,7 +62,7 @@ echo $ACR_LOGINSERVER
 #Example output: acrdemosn.azurecr.io
 
 #--------------------------------------------------------------------
-#STEP 5: Create new Container Image Tag using ACR "loginServer"
+#STEP 5: Create new Container Image Tag with ACR "loginServer"
 #--------------------------------------------------------------------
 docker tag webappimage:v1 $ACR_LOGINSERVER/webappimage:v1
 
@@ -93,7 +93,7 @@ cd "C:\Projects\Personal\AZ-204\01.Compute\02.Container"
 az acr build --image "webappimage:v1-acr-task" --registry $ACR_NAME .
 
 <# NOTE: ACR Task performs the following steps:
-- Takes our code and dockerfile locally
+- Takes our code and Dockerfile locally
 - Creates ZIP file and ship to ACR
 - Kick off container build
 - Push into ACR or Azure
@@ -102,13 +102,10 @@ az acr build --image "webappimage:v1-acr-task" --registry $ACR_NAME .
 #Both images should be there now, the one we built locally and the one build with ACR tasks
 az acr repository show-tags --name $ACR_NAME --repository webappimage --output table
 
-#Cleanup resource group
-az group delete --name "rg-az204-acr" --yes --no-wait
-
 <# 
-#=======================================================================================
+=======================================================================================
 ADDITIONAL INFO
-#=======================================================================================
+=======================================================================================
 
 --------------------------------------------------------------------
 ACR Authentication and Security Options
