@@ -124,8 +124,8 @@
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                       "managedDisk": {
-                        "storageAccountType": "Premium_LRS",
-                        "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachines_vm_win_demo_sn_name'), '_OsDisk_1_e51498c42799435d9d8635bb65d8f80f'))]"
+                        "storageAccountType": "Standard_LRS",
+                        "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_vm_win_demo_sn_name'), '_OsDisk_1_e51498c42799435d9d8635bb65d8f80f'))]"
                       },
                         "deleteOption": "Detach",
                         "diskSizeGB": 127
