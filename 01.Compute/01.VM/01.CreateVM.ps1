@@ -1,7 +1,7 @@
 <# 
 This script can be executed locally on Developer Workstation or Azure Cloud Shell.
 
-Microsoft Documentation References:
+Web References:
 https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions
 #>

@@ -1,6 +1,7 @@
 <# 
 This script needs to be executed locally on Developer Workstation.
 
+Web References:
 https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-login
 https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli
 https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#individual-login-with-azure-ad
@@ -91,8 +92,58 @@ cd "C:\Projects\Personal\AZ-204\01.Compute\02.Container"
 #Use ACR build to build our image in azure and then push that into ACR
 az acr build --image "webappimage:v1-acr-task" --registry $ACR_NAME .
 
+<# NOTE: ACR Task performs the following steps:
+- Takes our code and dockerfile locally
+- Creates ZIP file and ship to ACR
+- Kick off container build
+- Push into ACR or Azure
+#>
+
 #Both images should be there now, the one we built locally and the one build with ACR tasks
 az acr repository show-tags --name $ACR_NAME --repository webappimage --output table
 
 #Cleanup resource group
 az group delete --name "rg-az204-acr" --yes --no-wait
+
+<# 
+#=======================================================================================
+ADDITIONAL INFO
+#=======================================================================================
+
+--------------------------------------------------------------------
+ACR Authentication and Security Options
+--------------------------------------------------------------------
+- Requires authentication for operations
+- Azure Active Directory Identities
+    > Users
+    > Service Principals
+- ACR Admin (disabled by default)
+- Orchestrators, tools and applications should use 'headless' authentication
+- az acr login OR docker login
+- Role-based access controls
+
+--------------------------------------------------------------------
+ACR Role-Based Authentication
+--------------------------------------------------------------------
+Owner
+Contributor
+Reader
+AcrPush
+AcrPull
+AcrDelete
+AcrImageSigner
+
+--------------------------------------------------------------------
+Roles typically assigned to Users
+--------------------------------------------------------------------
+Owner
+Contributor
+Reader
+
+--------------------------------------------------------------------
+Roles typically assigned to Service Principals (headless auth) used by Tools
+--------------------------------------------------------------------
+AcrPush
+AcrPull
+AcrDelete
+#>
