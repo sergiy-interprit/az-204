@@ -1,5 +1,7 @@
-#Microsoft Documentation Reference (Azure CLI):
+<# Microsoft Documentation References:
 https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions
+#>
 
 #Login to Azure
 az login
