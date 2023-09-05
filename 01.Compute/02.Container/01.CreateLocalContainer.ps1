@@ -46,6 +46,11 @@ docker run --name webapp --publish 8080:80 --detach webappimage:v1
 
 curl http://localhost:8080/test
 
+<# NOTE:
+When you run a container in detach mode, you don't see the container's output (logs and console messages) in your terminal.
+Instead, you get your command prompt back immediately, and the container runs in the background.
+#>
+
 #Stop and delete the running Web App container
 docker stop webapp
 docker rm webapp
