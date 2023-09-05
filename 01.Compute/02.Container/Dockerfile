@@ -1,9 +1,9 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 
 RUN mkdir /app
 WORKDIR /app
 
-COPY ./webapp/bin/Release/netcoreapp3.1/publish ./
+COPY ./webapp/bin/Release/net6.0/publish ./
 COPY ./config.sh ./
 
 RUN bash config.sh
