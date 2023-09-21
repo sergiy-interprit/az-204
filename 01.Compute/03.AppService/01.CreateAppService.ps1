@@ -51,6 +51,12 @@ az webapp create `
 #NOTE: Run the following commands to get a list of supported Linux runtimes (JavaScript code on server-side)
 az webapp list-runtimes --os-type linux
 
+#Verify
+#Browse default page: http://appsvc-webapp-sn.azurewebsites.net/
+
+#Next Steps:
+#Deploy App code manually from Visual Studio or repo via Deployment Center or App 
+
 #Cleanup resource group
 az group delete --name "rg-az204-appsvc" --yes --no-wait
 
