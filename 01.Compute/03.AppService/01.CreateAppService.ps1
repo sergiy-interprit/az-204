@@ -46,7 +46,7 @@ az webapp create `
     -g rg-az204-appsvc `
     -p asp-webapp-sn `
     -n appsvc-webapp-sn `
-    --runtime "NODE:18-lts"
+    --runtime "NODE:16-lts"
 
 #NOTE: Run the following commands to get a list of supported Linux runtimes (JavaScript code on server-side)
 az webapp list-runtimes --os-type linux

@@ -51,7 +51,7 @@ az acr update -n $ACR_NAME --admin-enabled true
 #Login to ACR under current login context (Admin)
 az acr login --name $ACR_NAME
 
-# Show ACR Authentication Token (For programmatic  access to ACR)
+# Show ACR Authentication Token (For programmatic access to ACR)
 az acr login --name $ACR_NAME --expose-token
 
 #--------------------------------------------------------------------
